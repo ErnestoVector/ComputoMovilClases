@@ -6,13 +6,14 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
+import android.view.View
 import android.widget.Toast
 
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.content_main.*
 
 //class MainActivity() extends AppCompatActivity()
 class MainActivity : AppCompatActivity() {
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         Log.d("CICLODEVIDA", "ON CREATE")
@@ -20,7 +21,20 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         setSupportActionBar(toolbar)
 
-        fab.setOnClickListener { view ->
+        btn1.setOnClickListener {
+            escribeDigito(1)
+        }
+
+        btn2.setOnClickListener {
+            escribeDigito(2)
+        }
+
+        btn3.setOnClickListener {
+            escribeDigito(3)
+        }
+
+
+        fab.setOnClickListener {
             toast("Mensaje")
             //Toast.makeText(this, "Hola TOAST!", Toast.LENGTH_SHORT).show()
             /*Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
@@ -58,6 +72,41 @@ class MainActivity : AppCompatActivity() {
 
 
     private fun numeroAleatorio(max: Int): Double = (Math.random() * max)
+
+    private fun escribeDigito(digito: Int) {
+        var actual = tvDigitos.text.toString()
+        actual += digito.toString()
+        tvDigitos.text = actual
+    }
+
+
+
+    fun clickBtn4(view: View) {
+        escribeDigito(4)
+    }
+
+    fun clickBtn5(view: View) {
+        escribeDigito(5)
+    }
+
+    fun clickBtn6(view: View) {
+        escribeDigito(6)
+    }
+
+
+
+    fun onClick(v: View) {
+        when(v.id) {
+            R.id.btn7 -> {
+                escribeDigito(7)
+                //...
+            }
+            R.id.btn8 -> escribeDigito(8)
+            R.id.btn9 -> escribeDigito(9)
+            R.id.btn0 -> escribeDigito(0)
+        }
+    }
+
 
 
 
